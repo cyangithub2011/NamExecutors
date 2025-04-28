@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nam Executor V3 - Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      font-family: 'Poppins', sans-serif;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      background: #151515;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #005eff, 0 0 30px #005eff;
+      max-width: 700px;
+      width: 90%;
+      animation: fadeIn 1.5s ease;
+      text-align: center;
+      border: 1px solid #005eff;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      color: #7ab8ff;
+      text-shadow: 0 0 10px #005eff;
+      animation: grow 2s infinite alternate;
+    }
+
+    p.status {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      color: #00ff88;
+    }
+
+    .changelog {
+      background: #1c1c1c;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: left;
+      margin-top: 20px;
+      border: 1px solid #005eff;
+    }
+
+    .changelog h2 {
+      margin-bottom: 10px;
+      color: #5ab9ff;
+    }
+
+    .changelog ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .changelog ul li {
+      margin-bottom: 10px;
+      padding-left: 15px;
+      position: relative;
+      font-size: 1em;
+    }
+
+    .changelog ul li::before {
+      content: "➤";
+      color: #00ffe0;
+      position: absolute;
+      left: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes grow {
+      from { transform: scale(1); }
+      to { transform: scale(1.03); }
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Nam Executor V3</h1>
+    <p class="status">Status: <strong>Online</strong></p>
+
+    <div class="changelog">
+      <h2>Latest Changelog</h2>
+      <ul>
+        <li>🌟 Brand new dark UI style.</li>
+        <li>⚡ Fast script injection improvements.</li>
+        <li>🛠 Bug fixes and minor improvements.</li>
+        <li>🚀 Added new script library support.</li>
+      </ul>
+    </div>
+
+    <footer>© 2025 Nam Executor V3 | All Rights Reserved.</footer>
+  </div>
+
+</body>
+</html>
