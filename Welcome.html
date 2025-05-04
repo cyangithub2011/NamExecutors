@@ -1,117 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nam Executor V3 - Welcome</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nam Executor V3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #0f0f0f;
-      font-family: 'Poppins', sans-serif;
-      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f1a;
+      color: #f0f0f0;
+    }
+
+    .dashboard {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
+      padding: 40px;
+      gap: 40px;
     }
 
-    .container {
-      background: #151515;
-      padding: 40px 50px;
+    .left-section, .right-section {
+      flex: 1;
+    }
+
+    .profile-card, .news-list, .scripts-list {
+      background: #181824;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(79, 143, 255, 0.2);
+      margin-bottom: 20px;
+      transition: 0.3s ease;
+    }
+
+    .profile-card img {
+      width: 64px;
+      border-radius: 50%;
+      border: 2px solid #4f8fff;
+    }
+
+    .profile-card h2 {
+      margin: 10px 0 5px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #4f8fff;
+      color: white;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      box-shadow: 0 0 8px #4f8fff;
+    }
+
+    .news-item {
+      padding: 10px;
+      border-bottom: 1px solid #2b2b3d;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-item h4 {
+      margin: 0;
+    }
+
+    .news-item p {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .script-card {
+      margin-bottom: 20px;
       border-radius: 15px;
-      box-shadow: 0 0 15px #005eff, 0 0 30px #005eff;
-      max-width: 700px;
-      width: 90%;
-      animation: fadeIn 1.5s ease;
-      text-align: center;
-      border: 1px solid #005eff;
+      padding: 15px;
+      background: #202031;
+      box-shadow: 0 0 10px rgba(79, 143, 255, 0.1);
+      transition: 0.3s;
     }
 
-    h1 {
-      font-size: 2.8em;
-      margin-bottom: 15px;
-      color: #7ab8ff;
-      text-shadow: 0 0 10px #005eff;
-      animation: grow 2s infinite alternate;
+    .script-card h4 {
+      margin: 0 0 5px;
     }
 
-    p.status {
-      font-size: 1.2em;
-      margin-bottom: 25px;
-      color: #00ff88;
+    .script-card p {
+      font-size: 0.9rem;
+      color: #cfcfcf;
     }
 
-    .changelog {
-      background: #1c1c1c;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: left;
-      margin-top: 20px;
-      border: 1px solid #005eff;
+    .execute-btn {
+      margin-top: 10px;
+      padding: 8px 20px;
+      background: #4f8fff;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 10px #4f8fff;
     }
 
-    .changelog h2 {
-      margin-bottom: 10px;
-      color: #5ab9ff;
-    }
-
-    .changelog ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .changelog ul li {
-      margin-bottom: 10px;
-      padding-left: 15px;
-      position: relative;
-      font-size: 1em;
-    }
-
-    .changelog ul li::before {
-      content: "➤";
-      color: #00ffe0;
-      position: absolute;
-      left: 0;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes grow {
-      from { transform: scale(1); }
-      to { transform: scale(1.03); }
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #555;
+    .execute-btn:hover {
+      background: #3978e6;
+      box-shadow: 0 0 15px #4f8fff;
     }
   </style>
 </head>
 <body>
+  <div class="dashboard">
+    <div class="left-section">
+      <div class="profile-card">
+        <img src="pfp.png" alt="User Avatar" />
+        <h2>Welcomeback User</h2>
+        <span class="badge">Fremium</span>
+        <span class="badge">Sigma</span>
+      </div>
 
-  <div class="container">
-    <h1>Nam Executor V3</h1>
-    <p class="status">Status: <strong>Online</strong></p>
-
-    <div class="changelog">
-      <h2>Latest Changelog</h2>
-      <ul>
-        <li>🌟 Chúc mừng 50 năm ngày Giải Phóng Miền Nam 30/4</li>
-        <li>⚡ Nam API - Velocity</li>
-        <li>🛠 Less glow,more console,adding new injected notify</li>
-        <li>🚀 99% UNC auto update</li>
-      </ul>
+      <div class="news-list">
+        <h3>News</h3>
+        <div class="news-item">
+          <h4>New API</h4>
+          <p>Yeah i made new API-Velocity credit to them!</p>
+        </div>
+        <div class="news-item">
+          <h4>Removed old Injected notif</h4>
+          <p>I stop skidding TNG :D</p>
+        </div>
+        <div class="news-item">
+          <h4>Added New homepage</h4>
+          <p>This is the new homepage</p>
+        </div>
+        <div class="news-item">
+          <h4>Added many thing</h4>
+          <p>-Kill Injector button</p>
+        </div>
+      </div>
     </div>
 
-    <footer>© 2025 Nam Executor V3 | All Rights Reserved.</footer>
+    <div class="right-section">
+      <div class="scripts-list">
+        <h3>Trending Scripts</h3>
+        <div class="script-card">
+          <h4>Inf Yeld</h4>
+          <p>loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()</p>
+          <button class="execute-btn">Execute</button>
+        </div>
+        <div class="script-card">
+          <h4>Redz</h4>
+          <p>loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))()</p>
+          <button class="execute-btn">Execute</button>
+        </div>
+        <div class="script-card">
+          <h4>IDK</h4>
+          <p>Submit your script in my discord</p>
+          <button class="execute-btn">Execute(not working fr)</button>
+        </div>
+      </div>
+    </div>
   </div>
-
 </body>
 </html>
