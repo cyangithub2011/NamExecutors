@@ -1,220 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="assets/Logo.png" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nam Executor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* Animated radial glow background */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(94, 158, 255, 0.05), transparent 70%);
-  animation: cinematicGlow 10s ease-in-out infinite;
-  z-index: -1;
-  pointer-events: none;
+<title>Nam Executor</title>
+
+<link rel="icon" href="assets/Logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
 }
 
-@keyframes cinematicGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+animation:pageFade 1.2s ease;
 }
 
-    .glow {
-  text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+@keyframes pageFade{
+from{opacity:0}
+to{opacity:1}
 }
 
-.glow-img {
-  filter: drop-shadow(0 0 50px var(--primary));
-}
-    :root {
-      --main-bg: #0f1115;
-      --card-bg: #1a1c22;
-      --text: #ffffff;
-      --subtext: #a0a0a0;
-      --primary: #5e9eff;
-    }
+/* background glow */
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body::before{
+content:'';
+position:fixed;
+inset:0;
 
-    html, body {
-      background-color: var(--main-bg);
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      height: 100%;
-      width: 100%;
-    }
+background:
+radial-gradient(circle at 20% 20%,rgba(56,189,248,0.15),transparent 40%),
+radial-gradient(circle at 80% 0%,rgba(99,102,241,0.15),transparent 40%),
+radial-gradient(circle at 50% 100%,rgba(6,182,212,0.15),transparent 40%);
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background: rgba(15, 17, 21, 0.75);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-
-    header img {
-      height: 40px;
-      width: 40px;
-      border-radius: 8px;
-    }
-
-    header span {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 2rem;
-      padding-top: 120px;
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    p.description {
-      color: var(--subtext);
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      padding: 0.75rem 2rem;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 60px #5e9eff60;
-    }
-
-    .btn:hover {
-  background-color: #78adff;
-  transform: translateY(-2px);
-  box-shadow: 0 0 50px #78adffaa;
+z-index:-2;
+animation:glowMove 12s ease-in-out infinite;
 }
 
+@keyframes glowMove{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
 
-    img.preview {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 150px rgba(94, 158, 255, 0.2);
-      margin-top: 2rem;
-    }
+/* NAVBAR */
 
-    footer {
-      margin-top: 4rem;
-      color: var(--subtext);
-      font-size: 0.9rem;
-    }
+.navbar{
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
+position:fixed;
+top:25px;
+left:50%;
+transform:translateX(-50%);
 
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
+width:90%;
+max-width:1100px;
 
-      .buttons {
-        flex-direction: column;
-      }
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-      nav {
-        display: none;
-      }
-    }
-  </style>
+padding:12px 20px;
+
+background:rgba(15,23,42,0.6);
+backdrop-filter:blur(16px);
+
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:0 0 40px rgba(56,189,248,0.15);
+
+z-index:100;
+
+animation:navDrop 1s ease;
+}
+
+@keyframes navDrop{
+from{
+opacity:0;
+transform:translate(-50%,-30px);
+}
+to{
+opacity:1;
+transform:translate(-50%,0);
+}
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:600;
+}
+
+.logo img{
+width:36px;
+border-radius:8px;
+filter:drop-shadow(0 0 10px #38bdf8);
+}
+
+/* nav links */
+
+.navlinks{
+display:flex;
+gap:25px;
+}
+
+.navlinks a{
+text-decoration:none;
+color:#cbd5f5;
+font-weight:500;
+transition:0.25s;
+}
+
+.navlinks a:hover{
+color:#38bdf8;
+}
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+padding-top:180px;
+padding-left:40px;
+padding-right:40px;
+padding-bottom:40px;
+
+}
+
+/* title animation */
+
+.hero h1{
+
+font-size:64px;
+font-weight:800;
+
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+color:transparent;
+
+text-shadow:0 0 30px rgba(56,189,248,0.4);
+
+opacity:0;
+animation:titleReveal 1.2s ease forwards;
+animation-delay:0.3s;
+}
+
+@keyframes titleReveal{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* description */
+
+.hero p{
+max-width:600px;
+margin-top:20px;
+color:#94a3b8;
+font-size:18px;
+line-height:1.6;
+
+opacity:0;
+animation:titleReveal 1.2s ease forwards;
+animation-delay:0.6s;
+}
+
+/* BUTTONS */
+
+.buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+
+opacity:0;
+animation:titleReveal 1.2s ease forwards;
+animation-delay:0.9s;
+}
+
+.btn{
+
+padding:14px 30px;
+border-radius:10px;
+border:none;
+
+cursor:pointer;
+
+font-weight:600;
+font-size:16px;
+
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+color:white;
+
+box-shadow:0 0 30px rgba(56,189,248,0.35);
+
+transition:0.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 60px rgba(56,189,248,0.6);
+}
+
+/* PREVIEW IMAGE */
+
+.preview{
+
+margin-top:60px;
+
+max-width:900px;
+width:100%;
+height:auto;
+
+border-radius:16px;
+
+box-shadow:0 0 100px rgba(56,189,248,0.25);
+
+opacity:0;
+animation:imageReveal 1.5s ease forwards;
+animation-delay:1.2s;
+}
+
+@keyframes imageReveal{
+from{
+opacity:0;
+transform:scale(0.95);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* FEATURES */
+
+.features{
+
+padding:120px 40px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:30px;
+
+max-width:1100px;
+margin:auto;
+}
+
+.feature{
+
+background:rgba(15,23,42,0.6);
+
+border-radius:14px;
+padding:30px;
+
+border:1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(12px);
+
+transition:0.25s;
+}
+
+.feature:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 40px rgba(56,189,248,0.25);
+}
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+color:#64748b;
+font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:42px;
+}
+
+.navlinks{
+display:none;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- Navbar -->
-  <header>
-    <!-- Logo + Name -->
-    <div style="display: flex; align-items: center; gap: 0.75rem;">
-      <img src="assets/Logo.png" alt="Logo" class="glow-img" />
-      <span>Nam Executor</span>
-    </div>
+<div class="navbar">
 
-    <!-- Nav Links -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#download">Download</a>
-      <a href="https://discord.gg/BBPcpDBVhR">Discord</a>
-    </nav>
-  </header>
+<div class="logo">
+<img src="assets/Logo.png">
+<span>Nam Executor</span>
+</div>
 
-  <!-- Main Content -->
-  <div class="container">
-   <h1 class="glow">Nam Executor V3.</h1>
-    <p class="description">
-      A clean, powerful, and keyless Lua exploit experience – optimized for performance and simplicity.
-    </p>
+<div class="navlinks">
+<a href="getnamexecutor.gg">Home</a>
+<a href="https://discord.gg/GtYRK3dUTM">Download</a>
+<a href="https://discord.gg/GtYRK3dUTM">Discord</a>
+</div>
 
-    <div class="buttons" id="download">
-      <a href="https://github.com/cyangithub2011/Nam_Executor/releases/download/Nam/NamExeucutorV3.1.0.zip"><button class="btn">Download for Windows(beta)</button></a>
-      <a href="getkey.html"><button class="btn">No Key!</button></a>
-    </div>
+</div>
 
-    <img src="assets/Showcase1.png" alt="Nam Executor Preview" class="preview" />
+<section class="hero">
 
-    <footer>© 2025 RainBows softworks. All rights reserved.</footer>
-  </div>
+<h1>Nam Executor</h1>
+
+<p>
+Là Executor Roblox đầu tiên Việt Nam, ưu tiên trải nghiệm người dùng và cải thiện từng ngày với 100% sUNC.
+</p>
+
+<div class="buttons" id="download">
+
+<a href="https://discord.gg/GtYRK3dUTM">
+<button class="btn">Tải Nam Executor (PC)</button>
+</a>
+
+<a href="getkey.html">
+<button class="btn">Khảo Giá</button>
+</a>
+
+</div>
+
+<img class="preview" src="assets/nam.jpg">
+
+</section>
+
+<section class="features">
+
+<div class="feature">
+<h3>⚡ Hỗ trợ nhiều script</h3>
+<p>Lắng nghe người dùng, cải thiện functions và luôn đáp ứng.</p>
+</div>
+
+<div class="feature">
+<h3>🎨 Được nhiều người tin dùng</h3>
+<p>Nam Executor không có RAT hay virus.</p>
+</div>
+
+<div class="feature">
+<h3>🔓 Không key (beta)</h3>
+<p>Phiên bản beta không yêu cầu key.</p>
+</div>
+
+<div class="feature">
+<h3>🧠 Chào đón devs</h3>
+<p>Developer có thể tham gia phát triển project.</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Nam Technologies
+</footer>
+
 </body>
 </html>
